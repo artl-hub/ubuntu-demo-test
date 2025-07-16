@@ -11,15 +11,18 @@ public class GoogleTest {
 
     @BeforeAll
     static void setup() {
-        String remoteUrl = System.getProperty("remoteUrl");
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
+        String remoteUrl = System.getProperty("remoteUrl");
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
             Configuration.remote = remoteUrl;
+            Configuration.browser = "chrome";
+            Configuration.browserVersion = "125.0";
+
             capabilities.setCapability("enableVNC", true);
             // capabilities.setCapability("enableVideo", true);
-            Configuration.browserVersion = "125.0";
+        } else {
+            throw new RuntimeException("remoteUrl system property is not set. Use -DremoteUrl=http://localhost:4444/wd/hub");
         }
 
         Configuration.browser = "chrome";
@@ -28,6 +31,7 @@ public class GoogleTest {
 
         Configuration.browserCapabilities = capabilities;
     }
+
 
 
     @Test
