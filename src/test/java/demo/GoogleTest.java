@@ -19,7 +19,7 @@ public class GoogleTest {
             Configuration.remote = remoteUrl;
             capabilities.setCapability("enableVNC", true);
             // capabilities.setCapability("enableVideo", true);
-            Configuration.browserVersion = "120.0";
+            Configuration.browserVersion = "125.0";
         }
 
         Configuration.browser = "chrome";
