@@ -14,6 +14,8 @@ public class GoogleTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         String remoteUrl = System.getProperty("remoteUrl");
+        System.out.println("DEBUG remoteUrl = " + remoteUrl);
+
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
             Configuration.remote = remoteUrl;
             Configuration.browser = "chrome";
@@ -22,7 +24,8 @@ public class GoogleTest {
             capabilities.setCapability("enableVNC", true);
             // capabilities.setCapability("enableVideo", true);
         } else {
-            throw new RuntimeException("remoteUrl system property is not set. Use -DremoteUrl=http://localhost:4444/wd/hub");
+//            throw new RuntimeException("remoteUrl system property is not set. Use -DremoteUrl=http://localhost:4444/wd/hub");
+            System.out.println("REMOTE_URL WAS NULL");
         }
 
         Configuration.browser = "chrome";
